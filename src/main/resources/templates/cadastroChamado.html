@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/designSystemCadastro.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body>
+    <h1>Novo chamado</h1>
+    <form action="/cadastroChamado" method="post">
+
+        <label for="data">Data:</label>
+        <input type="date" required name="data_chamado">
+        </br></br>
+
+        <label for="titulo">Titulo</label>
+        <input type="text" placeholder="Exemplo: Impressora não imprime" required name="titulo">
+
+        <label for="nome">Faça uma breve descrição do problema</label>
+        <input type="text" placeholder="Exemplo: após realizar a troca de tonners, minha impressora está mais fazendo a impressão com tinta colorida" required name="descricao">
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Fila</label>
+        </div>
+        <select class="form-control" id="dropDownList" name="idFila">
+            <option value="null" selected>Selecione</option>
+            <option th:each="f : ${filas}" th:value="${f.id}" th:text="${f.descricao}"></option>
+        </select>
+        </br></br>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Produto</label>
+        </div>
+        <select class="form-control" id="dropDownList" name="idProdutos">
+            <option value="null" selected>Selecione</option>
+            <option th:each="prod : ${produtos}" th:value="${prod.id}" th:text="${prod.nome_produto}"></option>
+        </select>
+    </br></br>
+
+
+        <input type="submit" value="Cadastrar chamado">
+    </form>
+    <br>
+</body>
+
+</html>

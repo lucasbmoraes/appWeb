@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/designSystemCadastro.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body>
+    <h1>Cadastrar nova fila</h1>
+    <form action="/cadastroFila" method="post">
+
+            <label for="descricao">Nova fila</label>
+            <input class="input" type="text" placeholder="Insira o nome da fila" required name="descricao"
+                th:value="${fila?.descricao}">
+
+        <input type="submit" value="Cadastrar">
+    </form>
+    <br>
+</body>
+
+</html>

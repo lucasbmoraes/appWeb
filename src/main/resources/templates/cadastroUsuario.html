@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/designSystemCadastro.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body>
+    <h1>Cadastrar usuário</h1>
+    <form action="/cadastroUsuario" method="post">
+
+        <div th:if="${usuario}">
+            <input type="hidden" name="id" th:value="${usuario?.id}">
+        </div>
+
+        <label for="nome">Nome:</label>
+        <input type="text" placeholder="Digite seu nome" required name="nome" th:value="${usuario?.nome}">
+
+        <label for="nome">CPF:</label>
+        <input type="text" placeholder="123.456.789-00" required name="cpf" th:value="${usuario?.cpf}">
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nível do usuário</label>
+        </div>
+        <th:block th:each="nvl :${niveis}">
+            <input class="form-check-input" type="checkbox" name="nivel" th:value="${nvl.id}">
+            <label class="form-check-label" th:text="${nvl.descricao}"></label>
+        </th:block>
+        <th:block></br>
+
+
+            <label for="senha">Senha:</label>
+            <input type="password" placeholder="Insira sua senha" required name="senha">
+
+            <input type="submit" value="Cadastrar">
+    </form>
+    <br>
+</body>
+
+</html>

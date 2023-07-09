@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/designSystemCadastro.css">
+    <title>Novo produto</title>
+</head>
+
+<body>
+    <h1>Cadastrar novo produto</h1>
+    <form action="/cadastroProduto" method="post">
+
+            <label for="descricao">Novo produto</label>
+            <input class="input" type="text" placeholder="Insira o nome e modelo do produto" required name="nome_produto"
+                th:value="${produto?.nome_produto}">
+
+        <input type="submit" value="Cadastrar">
+    </form>
+    <br>
+</body>
+
+</html>
