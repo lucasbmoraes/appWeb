@@ -19,6 +19,7 @@ public class Chamado {
 
     private int id;
     private Date data_chamado;
+    private String titulo;
     private String descricao;
     private String historico;
     private boolean status;
@@ -32,15 +33,17 @@ public class Chamado {
     @ManyToOne(cascade = CascadeType.ALL) // VÁRIOS CHAMADOS PARA UM USUARIO - MANY CLASSE - ONE ATRIBUTO
     private Usuario usuario;
 
-    public Chamado() {
-    }
-
-    public Chamado(int id, Date data_chamado, String descricao, String historico, boolean status) {
+    public Chamado(int id, Date data_chamado, String titulo, String descricao, String historico, boolean status,
+            Fila fila, Produto produto, Usuario usuario) {
         this.id = id;
         this.data_chamado = data_chamado;
+        this.titulo = titulo;
         this.descricao = descricao;
         this.historico = historico;
         this.status = status;
+        this.fila = fila;
+        this.produto = produto;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -57,6 +60,14 @@ public class Chamado {
 
     public void setData_chamado(Date data_chamado) {
         this.data_chamado = data_chamado;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescricao() {
@@ -81,6 +92,30 @@ public class Chamado {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Fila getFila() {
+        return fila;
+    }
+
+    public void setFila(Fila fila) {
+        this.fila = fila;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

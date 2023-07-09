@@ -27,9 +27,10 @@ public class NivelUsuario {
 
     }
 
-    public NivelUsuario(int id, String descricao) {
+    public NivelUsuario(int id, String descricao, List<Usuario> usuarios) {
         this.id = id;
         this.descricao = descricao;
+        this.usuarios = usuarios;
     }
 
     public List<Usuario> getUsuarios() {

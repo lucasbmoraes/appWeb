@@ -24,20 +24,21 @@ public class Produto {
                                                                 // ATRIBUTO
     List<Chamado> chamados;
 
+    public Produto() {
+
+    }
+
+    public Produto(int id, String nome_produto) {
+        this.id = id;
+        this.nome_produto = nome_produto;
+    }
+
     public List<Chamado> getChamados() {
         return chamados;
     }
 
     public void setChamados(List<Chamado> chamados) {
         this.chamados = chamados;
-    }
-
-    public Produto() {
-    }
-
-    public Produto(int id, String nome_produto) {
-        this.id = id;
-        this.nome_produto = nome_produto;
     }
 
     public int getId() {

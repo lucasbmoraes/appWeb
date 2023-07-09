@@ -25,14 +25,6 @@ public class Fila {
                                                              // ATRIBUTO
     List<Chamado> chamados;
 
-    public List<Chamado> getChamados() {
-        return chamados;
-    }
-
-    public void setChamados(List<Chamado> chamados) {
-        this.chamados = chamados;
-    }
-
     public Fila() {
 
     }
@@ -58,4 +50,11 @@ public class Fila {
         this.descricao = descricao;
     }
 
+    public List<Chamado> getChamados() {
+        return chamados;
+    }
+
+    public void setChamados(List<Chamado> chamados) {
+        this.chamados = chamados;
+    }
 }

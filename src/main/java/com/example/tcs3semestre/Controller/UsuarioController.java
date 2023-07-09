@@ -24,9 +24,9 @@ public class UsuarioController {
     @Autowired
     NivelUsuarioRepository nivelUsuarioRepository;
 
-    @GetMapping("/loginUsuario")
-    public String homeLogin() {
-        return "loginUsuario";
+    @GetMapping("/menuPrincipal")
+    public String menuPrincipal() {
+        return "menuPrincipal";
     }
 
     @GetMapping("/cadastroUsuario")
@@ -38,11 +38,17 @@ public class UsuarioController {
         return mv;
     }
 
-    /*
-     * Telefone telefone = new Telefone();
-     * telefone = telRepository.findById(idTelefone).get();
-     * telefone.setAluno(aluno);
-     * telRepository.save(telefone);
-     */
+    @PostMapping("/cadastroUsuario")
+    public String salvar(Usuario usuario, @RequestParam("nivel") List<Integer> idNivel) {
+
+        ArrayList<NivelUsuario> nivel = new ArrayList<>();
+        for (Integer id : idNivel) {
+            nivel.add(nivelUsuarioRepository.findById(id).get());
+        }
+        usuario.setNiveis(nivel);
+        usuarioRepository.save(usuario);
+
+        return "redirect:/loginUsuario";
+    }
 
 }
